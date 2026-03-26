@@ -1,0 +1,42 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-02-17",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "migrations": [
+    {
+      "tag": "v1",
+      // Changed this to match your IncidentDO class
+      "new_sqlite_classes": [
+        "IncidentDO"
+      ]
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "INCIDENT_DO",
+        "class_name": "IncidentDO"
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "postmortem-workflow",
+      "binding": "POSTMORTEM_WORKFLOW",
+      "class_name": "PostmortemWorkflow"
+    }
+  ],
+  "ai": {
+    "binding": "AI" 
+  },
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./public"
+  }
+}

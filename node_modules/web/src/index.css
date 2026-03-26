@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #09090b;
+}
+
+.bg-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-ambient::before,
+.bg-ambient::after {
+  content: "";
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  filter: blur(60px);
+  opacity: 0.35;
+  border-radius: 9999px;
+}
+
+.bg-ambient::before {
+  top: -25vmax;
+  left: -10vmax;
+  background: radial-gradient(circle at 30% 30%, #7c3aed, transparent 60%);
+  animation: float1 12s ease-in-out infinite;
+}
+
+.bg-ambient::after {
+  bottom: -25vmax;
+  right: -10vmax;
+  background: radial-gradient(circle at 70% 70%, #06b6d4, transparent 60%);
+  animation: float2 14s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6vmax, 4vmax) scale(1.05); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6vmax, 3vmax) scale(1.06); }
+}
