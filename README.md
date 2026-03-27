@@ -47,10 +47,10 @@ This project is built entirely on the Cloudflare developer platform:
 
 | Requirement | Implementation |
 |------------|---------------|
-| **LLM** | Workers AI using Llama 3.3 |
-| **Workflow / Coordination** | Cloudflare Workflows + Durable Objects |
-| **User Input (Chat)** | React chat interface (Cloudflare Pages) |
-| **Memory / State** | Durable Object storing evolving incident state |
+| LLM | Workers AI using Llama 3.3 |
+| Workflow / Coordination | Cloudflare Workflows + Durable Objects |
+| User Input (Chat) | React chat interface (Cloudflare Pages) |
+| Memory / State | Durable Object storing evolving incident state |
 
 ---
 
@@ -97,19 +97,19 @@ npm install -g wrangler
 Login to Cloudflare:
 wrangler login
 
-1. Install dependencies
+Install dependencies
 npm install
 
-2. Run backend (Workers)
+Run backend (Workers)
 cd apps/api
 npx wrangler dev
 
-3. Run frontend
+Run frontend
 cd apps/web
 npm install
 npm run dev
 
-4. Open the app
+Open the app
 http://localhost:5173
 
 ⚠️ Notes
@@ -119,7 +119,8 @@ http://localhost:5173
 -This project requires Cloudflare authentication via Wrangler to run locally
 
 🎯 Why this project
--This project demonstrates:
+This project demonstrates:
+
 -Building stateful AI applications
 -Designing LLM + workflow-based systems
 -Handling real-world AI limitations (invalid outputs)
