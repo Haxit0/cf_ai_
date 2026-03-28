@@ -35,18 +35,18 @@ This application helps engineers triage production incidents, maintain structure
 
 This project is built entirely on the Cloudflare developer platform:
 
-- **Workers** → API layer  
-- **Durable Objects** → stateful incident memory  
-- **Workflows** → asynchronous postmortem generation  
-- **Workers AI (Llama 3.3)** → LLM reasoning  
-- **Pages (React + Tailwind)** → frontend UI  
+- **Workers** → API layer
+- **Durable Objects** → stateful incident memory
+- **Workflows** → asynchronous postmortem generation
+- **Workers AI (Llama 3.3)** → LLM reasoning
+- **Pages (React + Tailwind)** → frontend UI
 
 ---
 
 ## ✅ Assignment Requirements Mapping
 
 | Requirement | Implementation |
-|------------|---------------|
+| --- | --- |
 | LLM | Workers AI using Llama 3.3 |
 | Workflow / Coordination | Cloudflare Workflows + Durable Objects |
 | User Input (Chat) | React chat interface (Cloudflare Pages) |
@@ -56,14 +56,14 @@ This project is built entirely on the Cloudflare developer platform:
 
 ## 🧠 How it works
 
-1. A user creates an incident and begins chatting  
+1. A user creates an incident and begins chatting
 2. The LLM:
-   - asks clarifying questions  
-   - updates structured incident state  
-3. State is stored in a Durable Object  
+   - asks clarifying questions
+   - updates structured incident state
+3. State is stored in a Durable Object
 4. When the incident is closed:
-   - a Workflow generates a postmortem  
-   - the result is stored and displayed in the UI  
+   - a Workflow generates a postmortem
+   - the result is stored and displayed in the UI
 
 ---
 
@@ -93,39 +93,64 @@ Install Wrangler:
 
 ```bash
 npm install -g wrangler
+```
 
 Login to Cloudflare:
+
+```bash
 wrangler login
+```
 
-Install dependencies
+### Install dependencies
+
+```bash
 npm install
+```
 
-Run backend (Workers)
+### Run backend (Workers)
+
+```bash
 cd apps/api
 npx wrangler dev
+```
 
-Run frontend
+### Run frontend
+
+```bash
 cd apps/web
 npm install
 npm run dev
+```
 
-Open the app
-http://localhost:5173
+### Open the app
 
-⚠️ Notes
--LLM responses may occasionally return incomplete JSON
--The system includes fallback handling to ensure stability
--Postmortem generation is asynchronous (via Workflows)
--This project requires Cloudflare authentication via Wrangler to run locally
+`http://localhost:5173`
 
-🎯 Why this project
+---
+
+## ⚠️ Notes
+
+- LLM responses may occasionally return incomplete JSON
+- The system includes fallback handling to ensure stability
+- Postmortem generation is asynchronous (via Workflows)
+- This project requires Cloudflare authentication via Wrangler to run locally
+
+---
+
+## 🎯 Why this project
+
 This project demonstrates:
 
--Building stateful AI applications
--Designing LLM + workflow-based systems
--Handling real-world AI limitations (invalid outputs)
--Using the Cloudflare platform end-to-end
+- Building **stateful AI applications**
+- Designing **LLM + workflow-based systems**
+- Handling **real-world AI limitations (invalid outputs)**
+- Using the **Cloudflare platform end-to-end**
 
-👨‍💻 Author
-Juan Morales
+---
+
+## 👨‍💻 Author
+
+Juan Morales  
 Computer Science Student @ University of Surrey
+
+---
